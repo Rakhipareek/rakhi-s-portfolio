@@ -7,13 +7,13 @@ struct Node
     struct Node *next;
 };
 void transerverse(struct Node *ptr); //transverserse function protocalling
-struct Node * insertAtFirst(struct Node *ptr, int element);
-struct Node * insertAtIndex(struct Node *ptr, int element, int index);
-struct Node * insertAtLast(struct Node *ptr, int element);
-struct Node * insertAfterNode(struct Node *ptr, struct Node *prevNode, int element);
+struct Node * insertAtFirst(struct Node *ptr, int element); //Inserting at first function protocalling
+struct Node * insertAtIndex(struct Node *ptr, int element, int index); //Inserting the node at index function protocalling
+struct Node * insertAtLast(struct Node *ptr, int element); //Inserting at last function protocalling
+struct Node * insertAfterNode(struct Node *ptr, struct Node *prevNode, int element); //Inserting node after a given node function protocalling
 
 
-void transerverse(struct Node *ptr)
+void transerverse(struct Node *ptr) //transverserse function defination
 {
     while(ptr != NULL)
     {
@@ -22,7 +22,7 @@ void transerverse(struct Node *ptr)
     }
 }
 
-struct Node * insertAtFirst(struct Node *ptr, int element)
+struct Node * insertAtFirst(struct Node *ptr, int element) //Inserting at first function defination
 {
     struct Node * node =  (struct Node*)malloc(sizeof(struct Node));
     node->data = element;
@@ -30,7 +30,7 @@ struct Node * insertAtFirst(struct Node *ptr, int element)
     return node;
 }
 
-struct Node * insertAtIndex(struct Node *ptr, int element, int index)
+struct Node * insertAtIndex(struct Node *ptr, int element, int index)  //Inserting the node at index function defination
 {
     struct Node * node = (struct Node *)malloc(sizeof(struct Node));
     struct Node * p = ptr; //because we don't want to losse the head we will return the same
@@ -60,7 +60,7 @@ struct Node * insertAtLast(struct Node *ptr, int element)
     return ptr;
 }
 
-struct Node * insertAfterNode(struct Node *ptr, struct Node *prevNode, int element)
+struct Node * insertAfterNode(struct Node *ptr, struct Node *prevNode, int element) ////Inserting node after a given node function defination
 {
     struct Node * node = (struct Node*)malloc(sizeof(struct Node));
 
@@ -99,28 +99,28 @@ int main()
     fourth->data = 10;
     fourth->next = NULL;
     printf("Elements of linked list\n");
-    transerverse(head);
+    transerverse(head); //transverserse function calling
 
     int index = 2;
-    head = insertAtFirst(head, 78);
+    head = insertAtFirst(head, 78); //Inserting at first function calling
     printf("\n\n");
 
     printf("Elements of linked list after inserting at start of linked list\n");
-    transerverse(head);
+    transerverse(head); //transverserse function calling
 
 
-    head = insertAtIndex(head, 56, index);
+    head = insertAtIndex(head, 56, index);  //Inserting the node at index function calling
     printf("\nElements of linked list after inserting at index %d of linked list\n", index);
-    transerverse(head);
+    transerverse(head); //transverserse function calling
 
 
     head = insertAtLast(head, 145);
     printf("\nElements of linked list after inserting at the last of linked list\n");
-    transerverse(head);
+    transerverse(head); //transverserse function calling
 
 
-    head = insertAfterNode(head, third, 552);
+    head = insertAfterNode(head, third, 552); ////Inserting node after a given node function calling
     printf("\nElements of linked list after inserting ater a node which is known to us linked list\nHere we are passing the third node\n");
-    transerverse(head);
+    transerverse(head); //transverserse function calling
     return 0;
 }
